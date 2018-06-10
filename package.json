@@ -1,0 +1,25 @@
+{
+  "name": "contentful-microsite-demo",
+  "version": "1.0.0",
+  "description": "An example NodeJS (Express.js) microsite that is configurable with Contentful an API-first, cloud-based platform",
+  "main": "build/app.js",
+  "scripts": {
+    "start": "node build/app.js",
+    "test": "mocha"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/kidtsunami/contentful-microsite-demo.git"
+  },
+  "keywords": [
+    "express",
+    "contentful",
+    "node"
+  ],
+  "author": "David Helmer",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/kidtsunami/contentful-microsite-demo/issues"
+  },
+  "homepage": "https://github.com/kidtsunami/contentful-microsite-demo#readme"
+}
