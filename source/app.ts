@@ -15,6 +15,6 @@ expressApp.get("/", (request: express.Request, response: express.Response) => {
     response.render("index");
 });
 
-expressApp.listen(process.env.PORT, function () {
+expressApp.listen(process.env.PORT, () => {
     logger.info("contentful-microsite-demo listening on port %d! THAT MEANS WE ARE SO LIVE", process.env.PORT);
 });

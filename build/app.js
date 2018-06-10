@@ -12,7 +12,7 @@ expressApp.engine('ect', ectRenderer.render);
 expressApp.get("/", (request, response) => {
     response.render("index");
 });
-expressApp.listen(process.env.PORT, function () {
+expressApp.listen(process.env.PORT, () => {
     logger_1.logger.info("contentful-microsite-demo listening on port %d! THAT MEANS WE ARE SO LIVE", process.env.PORT);
 });
 //# sourceMappingURL=app.js.map
