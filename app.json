@@ -5,5 +5,14 @@
     "success_url": "/",
     "website": "https://contentful-microsite-demo.herokuapp.com/",
     "env": {
+        "CONTENTFUL_API_SPACE_ID": {
+            "description": "Space Id for the Contentful Space"
+        },
+        "CONTENTFUL_API_ACCESS_TOKEN": {
+            "description": "Access Token for the Contentful Space"
+        },
+        "CONTENTFUL_MICROSITE_ENTRY_ID": {
+            "description": "Entry ID of the Microsite configuration"
+        }
     }
 }

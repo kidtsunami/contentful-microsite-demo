@@ -23,13 +23,18 @@
   },
   "homepage": "https://github.com/kidtsunami/contentful-microsite-demo#readme",
   "dependencies": {
+    "bluebird": "^3.5.1",
+    "contentful": "^6.1.1",
     "ect": "^0.5.9",
     "express": "^4.16.3",
+    "isomorphic-fetch": "^2.2.1",
     "promise": "^8.0.1",
     "winston": "^2.4.2"
   },
   "devDependencies": {
+    "@types/bluebird": "^3.5.20",
     "@types/express": "^4.16.0",
+    "@types/isomorphic-fetch": "0.0.34",
     "@types/winston": "^2.3.9"
   }
 }
