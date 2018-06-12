@@ -1,12 +1,79 @@
 <head>
     <meta content="width=device-width; initial-scale=1.0; maximum-scale=1.0; minimum-scale=1.0; user-scalable=no; target-densityDpi=device-dpi" name="viewport">
-    <title>Hello, dear world</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+    <script src="https://use.fontawesome.com/b8abd7d718.js"></script>
+    <link href="<%- this.layout.fields.stylesheet.fields.file.url %>" rel="stylesheet">
+    <title><%- this.pageConfig.fields.name %></title>
 </head>
-<body>
-    <h1>Immortal screaming</h1>
-    <div class="main">
-        <div class="content-area">
-            <% content %>
+
+<!--Base Template-->
+<body class="<%- this.layout.fields.bodyClass %>">
+    <div class="wrapper">
+        <nav class="navbar navbar-default navbar-static-top <%- this.layout.fields.bodyClass %>-nav" role="navigation">
+            <div class="container-fluid">
+                <div class="navbar-header">
+                    <button class="navbar-toggle collapsed" data-target=".navbar-collapse" data-toggle="collapse" type="button">
+                      <span class="sr-only">Toggle navigation</span>
+                      <span class="icon-bar bar1"></span>
+                      <span class="icon-bar bar2"></span>
+                      <span class="icon-bar bar3"></span>
+                    </button>
+                    <a class="navbar-brand logo-container" href="/">
+                      <img alt="" class="nav-image" src="<%- "https:" + this.layout.fields.navigation.fields.logo.fields.file.url %>">
+                    </a>
+                </div>
+                <div class="navbar-collapse collapse" id="navbar">
+                    <ul class="nav navbar-nav navbar-right list-unstyled menu">
+                        <% for item in this.layout.fields.navigation.fields.menuItems : %>
+                            <li class="menu-link">
+                                <a href="<%= item.fields.url %>" class="w-hidden-small w-hidden-tiny w-inline-block icon-link">
+                                    <i class="fa"></i> 
+                                    <div class="menu-text"><%= item.fields.label %></div> 
+                                </a>
+                            </li>
+                        <% end %>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+        <div class="main">
+            <!--Page Start-->
+            <div class="content-area">
+
+                <% content %>
+
+            </div>
+            <!--Page End-->
         </div>
+
+        <div class="push"></div>
+
+        <footer class="footer page-footer">
+            <div class="container-fluid">
+                <div class="row">
+                    <div class="col-md-4">
+                        <img src="<%- "https:" + this.layout.fields.footer.fields.logo.fields.file.url %>" alt="" class="footer-logo">
+                    </div>
+                    <div class="col-md-8">
+                        <div style="text-align:right;"><span class="footer-text"><%- this.layout.fields.footer.fields.text %></span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </footer>
     </div>
+    <!--Standard Imports-->
+    <script src="https://code.jquery.com/jquery-3.2.1.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+    <!--Core Scripts-->
+    
+    <!--Base Template Script import line-->
+    <% if this.baseTemplate && this.layout.fields.javascript : %>
+        <script src="<%- this.layout.fields.javascript.fields.file.url %>"></script>
+    <% end %>
+    <!--Page Script import line-->
+    <% if this.pageConfig.fields && this.pageConfig.fields.javascript : %>
+        <script src="<%- this.pageConfig.fields.javascript.fields.file.url %>"></script>
+    <% end %>
 </body>
+<!--End Base Template-->

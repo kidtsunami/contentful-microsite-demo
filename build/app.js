@@ -12,13 +12,22 @@ expressApp.set('view engine', 'ect');
 expressApp.engine('ect', ectRenderer.render);
 const contentfulClient = contentfulClient_1.instantiateContentfulClient();
 contentfulClient.getMicrositeConfig()
+    .then(setupAllRequests)
     .then(setupRoutes)
     .then(startApp);
+function setupAllRequests(micrositeConfig) {
+    expressApp.use((request, response, next) => {
+        response.locals.layout = micrositeConfig.fields.layout;
+        next();
+    });
+    return micrositeConfig;
+}
 function setupRoutes(micrositeConfig) {
     for (let page of micrositeConfig.fields.pages) {
         expressApp.get(page.fields.uri.toLowerCase(), handleWithConfig(page));
         logger_1.logger.info(`page ${page.fields.name} configured with uri: ${page.fields.uri}`);
     }
+    return micrositeConfig;
 }
 function handleWithConfig(pageConfig) {
     return (request, response) => {
