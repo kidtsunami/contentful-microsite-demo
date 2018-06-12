@@ -2,7 +2,6 @@ import { logger } from './logger';
 import * as express from 'express';
 import * as ECT from 'ect';
 import { instantiateContentfulClient, ContentfulClient } from './contentfulClient';
-import { debug } from 'util';
 
 logger.info('Hello! contentful-microsite-demo figuring itself out here... 👍🏾');
 
